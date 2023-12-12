@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="registration.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration Form</title>
+</head>
+<body>
+    <form>
+        <div class="app">
+            <h1>Registration Form</h1>
+            <div class="app1">
+                <label for="name">Name</label>
+                <input type="text" id="name" name="name" placeholder="Enter your name">
+
+                <label for="email">E-mail</label>
+                <input type="text" id="email" name="email" placeholder="Enter your E-mail">
+
+                <label for="newPassword">New Password</label>
+                <input type="password" id="newPassword" name="newPassword" placeholder="New Password">
+
+                <label for="confirmPassword">Confirm Password</label>
+                <input type="password" id="confirmPassword" name="confirmPassword" placeholder="Confirm Password">
+
+                <button class="submit" type="submit" onclick="return check()">SUBMIT</button>
+            </div>
+        </div>
+    </form>
+
+    <script>
+        function check() {
+            var name = document.getElementById('name').value;
+            var email = document.getElementById('email').value;
+            var newPassword = document.getElementById('newPassword').value;
+            var confirmPassword = document.getElementById('confirmPassword').value;
+
+            // Validate email format
+            var emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                            //arunshan@gmail   . com
+            if (!emailRegex.test(email)) {
+                alert('Invalid email format');
+                return false;
+            }
+
+            // Validate password length
+            if (newPassword.length < 6) {
+                alert('Password must be at least 6 characters');
+                return false;
+            }
+
+            // Validate password match
+            if (newPassword !== confirmPassword) {
+                alert('Passwords do not match');
+                return false;
+            }
+
+            // If all validations pass, you can proceed with form submission
+            alert('Form submitted successfully!');
+            return true;
+        }
+    </script>
+</body>
+</html>
