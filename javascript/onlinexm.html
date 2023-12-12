@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="onlineexm.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <div class="app">
+        <h1>Online Exam</h1>
+        <form>
+            <div class="exam">
+                <h2 class="question">What is the capital of Bihar?</h2>
+                <div class="answer">
+                    <button class="btn">
+                        <input type="radio" name="question1" value="patna" />&nbsp;&nbsp;patna<br />
+                    </button>
+                    <button class="btn">
+                        <input type="radio" name="question1" value="bhuvaneshwar" />&nbsp;&nbsp;bhuvaneshwar<br />
+                    </button>
+                </div>
+                <br><br>
+
+                <h2 class="question">What is the capital of Odisha?</h2>
+                <div class="answer">
+                    <button class="btn">
+                        <input type="radio" name="question2" value="bhubaneswar" />&nbsp;&nbsp;bhubaneswar<br />
+                    </button>
+                    <button class="btn">
+                        <input type="radio" name="question2" value="cuttack" />&nbsp;&nbsp;cuttack<br />
+                    </button>
+                </div>
+                <br><br>
+
+                <h2 class="question">What is the capital of Gujarat?</h2>
+                <div class="answer">
+                    <button class="btn">
+                        <input type="radio" name="question3" value="gandhinagar" />&nbsp;&nbsp;gandhinagar<br />
+                    </button>
+                    <button class="btn">
+                        <input type="radio" name="question3" value="ahmedabad" />&nbsp;&nbsp;ahmedabad<br />
+                    </button>
+                </div>
+                <br><br>
+
+                <button class="next" type="submit" onclick="return check()">SUBMIT</button>
+                <p id="result"></p>
+
+            </div>
+        </form>
+    </div>
+
+    <script>
+        function check() {
+            var score = 0;
+            var correctAnswers = ["patna", "bhubaneswar", "gandhinagar"];
+
+            var selAnswer1 = document.querySelector('input[name=question1]:checked');
+            if (selAnswer1 && selAnswer1.value === correctAnswers[0]) {
+                score++;
+            }
+
+            var selAnswer2 = document.querySelector('input[name=question2]:checked');
+            if (selAnswer2 && selAnswer2.value === correctAnswers[1]) {
+                score++;
+            }
+
+            var selAnswer3 = document.querySelector('input[name=question3]:checked');
+            if (selAnswer3 && selAnswer3.value === correctAnswers[2]) {
+                score++;
+            }
+
+            var resultMessage = "You got " + score + " out of 3 questions correct!";
+            document.getElementById("result").innerHTML = resultMessage;
+            return false;
+        }
+    </script>
+</body>
+</html>
