@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+<head>
+        <title>Document</title>
+</head>
+<body>
+    <button onclick="change()">Click Me!!</button>
+
+    <script>
+        function change() {
+            var color = '#' + Math.floor(Math.random()*16777215).toString(16);
+            document.body.style.background = color;
+        }
+    </script>
+</body>
+</html>
