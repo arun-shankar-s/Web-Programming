@@ -1,23 +1,19 @@
 <?php
 include("conn.php");
+$Roll=$_POST["roll"];
+$Name=$_POST["name"];
+$Physics=$_POST["physics"];
+$Chemistry=$_POST["chemistry"];
+$Maths=$_POST["maths"];
+$Total=$Physics+$Chemistry+$Maths;
 
-$Roll=$_POST["Roll"];
-$Name=$_POST["Name"];
-$Physics=$_POST["Physics"];
-$Chemistry=$_POST["Chemistry"];
-$Computer=$_POST["Computer"];
-$total=$Physics+$Chemistry+$Computer;
-
-$sql="INSERT INTO report(roll,name,subject1,subject2,subject3,total)values('$Roll','$Name','$Physics','$Chemistry','$Computer','$total')";
-$result =mysqli_query($connect,$sql);
-
-if($result){
-    echo "<script>alert('Added successfully!');</script>";
-
+$sql="INSERT INTO student(roll,name,physics,chemistry,maths,total)VALUES('$Roll','$Name','$Physics','$Chemistry','$Maths','$Total')";
+$result=mysqli_query($connect,$sql);
+if(!$result){
+    echo"<script>alert('Failed to Add!');</script>";
 }
 else{
-    echo "<script>alert('Failed to Add!');</script>";
-
+    echo"<script>alert('Added Succesfully!');</script>";
 }
 mysqli_close($connect);
 ?>
